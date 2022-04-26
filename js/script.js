@@ -174,16 +174,18 @@ const startOver = function () {
 }
 
 // play again button event listener
-playAgainButton.addEventListener("click", function (e) {
+playAgainButton.addEventListener("click", function () {
     guessMessage.classList.remove("win");
-    guessMessage.innerText = "";
-    lettersList.innerHTML = "<ul class='guessed-letters'></ul>";
     guessedLetters = [];
     remainingGuesses = 8;
     numRemainingGuesses.innerText = `${remainingGuesses} guesses`;
+    guessMessage.innerText = "";
+    lettersList.innerHTML = "";
+
+    getWord();
+
     guessButton.classList.remove("hide");
     howManyGuesses.classList.remove("hide");
     lettersList.classList.remove("hide");
     playAgainButton.classList.add("hide");
-    getWord();
 });
