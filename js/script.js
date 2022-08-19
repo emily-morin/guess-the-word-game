@@ -47,7 +47,6 @@ const getWord = async function () {
     const res = await fetch("https://gist.githubusercontent.com/skillcrush-curriculum/7061f1d4d3d5bfe47efbfbcfe42bf57e/raw/5ffc447694486e7dea686f34a6c085ae371b43fe/words.txt");
     const words = await res.text();
     const wordArray = words.split("\n");
-    // console.log(wordArray);
     let randomIndex = Math.floor(Math.random() * wordArray.length);
     word = wordArray[randomIndex].trim();
     console.log(word);
@@ -56,13 +55,8 @@ const getWord = async function () {
 
 // function that creates placeholders for letters in the word
 const hiddenLetters = function (word) {
-    // vvv my initial solution with repeat() vvv
-    // wordInProgress.innerText = "●".repeat(word.length);
-
-    // vvv skillcrush solution vvv
     const placeholderLetters = [];
     for (const letter of word) {
-        // console.log(letter);
         placeholderLetters.push("●");
     }
     wordInProgress.innerText = placeholderLetters.join("");
